@@ -1,0 +1,42 @@
+{
+  "name": "koa2-ssr-vue3-ts-pinia",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "node server-dev.js",
+    "server": "node server-prod.js",
+    "build": "pnpm build:client && pnpm build:server",
+    "build:client": "vite build --ssrManifest --outDir dist/client",
+    "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
+    "preview": "vite preview",
+    "eslint:comment": "使用 ESLint 检查并自动修复 src 目录下所有扩展名为 .js 和 .vue 的文件",
+    "eslint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "prettier:comment": "自动格式化当前目录下的所有文件",
+    "prettier": "prettier --write",
+    "commit:comment": "引导设置规范化的提交信息",
+    "commit": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  },
+  "dependencies": {
+    "@vue/server-renderer": "^3.2.37",
+    "koa": "^2.13.4",
+    "koa-connect": "^2.1.0",
+    "koa-send": "^5.0.1",
+    "pinia": "^2.0.14",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.16"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.4",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "commitizen": "^4.2.4",
+    "prettier": "^2.7.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9",
+    "vue-tsc": "^0.34.7"
+  }
+}
